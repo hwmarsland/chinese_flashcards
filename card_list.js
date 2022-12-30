@@ -10,3 +10,21 @@ const cards = [
     ['以后','yǐhòu','after'],
     ['好像','hǎoxiàng','to seem like'],
 ]
+
+// Keeps track of the card being displayed
+var cardIndexPointer = 0;
+// Keeps track of the deck currently in use
+var cardDeck = cards;
+
+function nextCard(){
+    cardIndexPointer += 1;
+    return (cardIndexPointer%cardDeck.length())
+};
+
+function previousCard(){
+    cardIndexPointer -= 1;
+    cardIndexPointer += cardDeck.length();
+    return (cardIndexPointer%cardDeck.length())
+};
+
+document.getElementById("card_pointer").innerHTML = cardIndexPointer;
