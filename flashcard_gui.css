@@ -1,6 +1,56 @@
 body {
-    background-color: #333333;
+    background-color: #ffffff;
 }
+
 html{
-    min-width: none;
+    min-width: 100%;
+    max-width: 900px;
+    overflow: auto;
+}
+
+#deckName {
+    padding-left: 5%;
+}
+
+.upArrow {
+    text-align: center;
+    background-color: #cccccc;
+    width: 50%;
+    margin: auto;
+}
+
+.flashcardBackground {
+    background-color: #333333;
+    margin: auto;
+    width: 80%;
+    border: 2px solid #ff0000;
+    padding: 5%;
+    min-height: 180px;
+    position: relative;
+}
+.flashcardBackground h2 {
+    color: #cccccc;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.flashcardBackground p {
+    color: #cccccc;
+    margin: 0;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.downArrow {
+    text-align: center;
+    background-color: #cccccc;
+    width: 50%;
+    margin: auto;
+}
+
+.nextPreviousIndicator {
+    text-align: center;
 }
