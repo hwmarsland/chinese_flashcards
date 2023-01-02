@@ -12,23 +12,28 @@ html{
     padding-left: 5%;
 }
 
-.upArrow {
+#upArrow {
+    display: table;
     text-align: center;
     background-color: #cccccc;
     width: 50%;
     margin: auto;
+    min-height: 40px;
+}
+#upArrow:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
 }
 
-.flashcardBackground {
+#flashcardBackground {
     background-color: #333333;
     margin: auto;
     width: 80%;
-    border: 2px solid #ff0000;
     padding: 5%;
     min-height: 180px;
     position: relative;
 }
-.flashcardBackground h2 {
+#flashcardBackground h2 {
     color: #cccccc;
     margin: 0;
     position: absolute;
@@ -36,7 +41,7 @@ html{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.flashcardBackground p {
+#flashcardBackground p {
     color: #cccccc;
     margin: 0;
     position: absolute;
@@ -44,13 +49,48 @@ html{
     left: 15px;
 }
 
-.downArrow {
+#downArrow {
+    display: table;
     text-align: center;
     background-color: #cccccc;
     width: 50%;
     margin: auto;
+    min-height: 40px;
+}
+#downArrow:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
 }
 
-.nextPreviousIndicator {
+#prevNextBlocks {
     text-align: center;
 }
+
+#previousCard {
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    background-color: #cccccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 150px;
+}
+#previousCard:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
+}
+
+#nextCardButton {
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    background-color: #cccccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 150px;
+}
+#nextCardButton:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
+}
+

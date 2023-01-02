@@ -26,5 +26,3 @@ function previousCard(){
     cardIndexPointer += cardDeck.length();
     return (cardIndexPointer%cardDeck.length())
 };
-
-document.getElementById("card_pointer").innerHTML = cardIndexPointer;

@@ -3,28 +3,38 @@
 
 <head>
     <link rel="stylesheet" href="flashcard_gui.css">
+    <script src="card_viewer.js"></script>
+    <script src="card_list.js"></script>
 </head>
 
 <h1 id="deckName">
     Deck in Use
 </h1>
 
-<div class="upArrow">
-    <p>▲ Pinyin ▲</p>
-</div>
+<button id="upArrow">
+    <div>
+        <p>▲ Pinyin ▲</p>
+    </div>
+</button>
 
-<div class="flashcardBackground">
+<div id="flashcardBackground">
     <p>Characters</p>
     <h2>Sample flashcard</h2>
 </div>
 
-<div class="downArrow">
+<button id="downArrow">
     <p>▼ English ▼</p>
-</div>
+</button>
 
 <br>
-<div class="nextPreviousIndicator">
-    <p>◀ Previous Card || Next Card ▶</p>
+<div id="prevNextBlocks">
+    <button id="previousCardButton">
+        <p>◀ Previous Card</p>
+    </button>
+
+    <button id="nextCardButton">
+        <p>Next Card ▶</p>
+    </button>
 </div>
 
 </html>
