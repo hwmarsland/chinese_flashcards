@@ -20,7 +20,7 @@ function handleDownClick() {
 }
 
 
-const previousCard = document.getElementById("previousCard")
+const previousCard = document.getElementById("previousCardButton")
 
 previousCard.addEventListener('click', function handlePrevCardClick() {
     console.log('Previous card button clicked');
@@ -31,7 +31,7 @@ function handlePrevCardClick() {
 }
 
 
-const nextCard = document.getElementById("nextCard")
+const nextCard = document.getElementById("nextCardButton")
 
 nextCard.addEventListener('click', function handleNextCardClick() {
     console.log('Next card button clicked');
