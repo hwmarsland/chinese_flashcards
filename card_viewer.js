@@ -13,7 +13,7 @@ upArrow.addEventListener('click', function handleUpClick() {
         document.getElementById("curTextType").innerHTML = "Pinyin";
         document.getElementById("downTextType").innerHTML = "▼ Characters ▼";
         //Setting flashcard text
-        document.getElementById("cardText").innerHTML = upCard("Pinyin");
+        document.getElementById("cardText").innerHTML = flipCard("Pinyin");
     }
     else if (document.getElementById("curTextType").innerHTML == "Pinyin") {
         //Setting button text
@@ -21,7 +21,7 @@ upArrow.addEventListener('click', function handleUpClick() {
         document.getElementById("curTextType").innerHTML = "English";
         document.getElementById("downTextType").innerHTML = "▼ Pinyin ▼";
         //Setting flashcard text
-        document.getElementById("cardText").innerHTML = upCard("English");
+        document.getElementById("cardText").innerHTML = flipCard("English");
     }
     else if (document.getElementById("curTextType").innerHTML == "English") {
         //Setting button text
@@ -29,12 +29,11 @@ upArrow.addEventListener('click', function handleUpClick() {
         document.getElementById("curTextType").innerHTML = "Characters";
         document.getElementById("downTextType").innerHTML = "▼ English ▼";
         //Setting flashcard text
-        document.getElementById("cardText").innerHTML = upCard("Characters");
+        document.getElementById("cardText").innerHTML = flipCard("Characters");
     }
     else {
         console.log('SOMETHING IS WRONG: You shouldnt be here')
     }
-
 });
 
 
