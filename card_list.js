@@ -18,13 +18,13 @@ var cardDeck = cards;
 
 export function nextCard(){
     cardIndexPointer += 1;
-    return (cardIndexPointer%cardDeck.length());
+    cardIndexPointer = cardIndexPointer%cardDeck.length();
 };
 
 export function previousCard(){
     cardIndexPointer -= 1;
     cardIndexPointer += cardDeck.length();
-    return (cardIndexPointer%cardDeck.length());
+    cardIndexPointer = cardIndexPointer%cardDeck.length();
 };
 
 export function flipCard(cardSide){

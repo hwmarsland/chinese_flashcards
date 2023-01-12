@@ -1,7 +1,15 @@
-// import { nextCard } from "./card_list.js";
-// import { previousCard } from "./card_list.js";
+// import { nextCard } from "./card_list";
+// import { previousCard } from "./card_list";
 import { flipCard } from "./card_list.js";
 
+
+// Setting starting value for flashcard
+document.getElementById("cardText").innerHTML = flipCard(document.getElementById("curTextType").innerHTML);
+
+
+/*
+Setting up the functionality of the up arrow button
+*/
 const upArrow = document.getElementById("upArrow")
 
 upArrow.addEventListener('click', function handleUpClick() {
@@ -37,6 +45,9 @@ upArrow.addEventListener('click', function handleUpClick() {
 });
 
 
+/*
+Setting up the functionality of the down arrow button
+*/
 const downArrow = document.getElementById("downArrow")
 
 downArrow.addEventListener('click', function handleDownClick() {
@@ -72,17 +83,23 @@ downArrow.addEventListener('click', function handleDownClick() {
 });
 
 
-
+/*
+Setting up the functionality of the previous card button
+*/
 const previousCard = document.getElementById("previousCardButton")
 
 previousCard.addEventListener('click', function handlePrevCardClick() {
     console.log('Previous card button clicked');
+    // previousCard();
 });
 
 
-
+/*
+Setting up the functionality of the next card button
+*/
 const nextCard = document.getElementById("nextCardButton")
 
 nextCard.addEventListener('click', function handleNextCardClick() {
     console.log('Next card button clicked');
+    // nextCard();
 });

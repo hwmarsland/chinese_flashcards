@@ -19,6 +19,7 @@ html{
     width: 50%;
     margin: auto;
     min-height: 40px;
+    min-width: fit-content;
 }
 #upArrow:hover {
     background-color: #ff0000;
@@ -56,6 +57,7 @@ html{
     width: 50%;
     margin: auto;
     min-height: 40px;
+    min-width: fit-content;
 }
 #downArrow:hover {
     background-color: #ff0000;
