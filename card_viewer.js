@@ -15,17 +15,15 @@ const upArrow = document.getElementById("upArrow")
 upArrow.addEventListener('click', function handleUpClick() {
     console.log('Up arrow button clicked');
     //Handling the visual changes
-    if (document.getElementById("curTextType").innerHTML == "Characters") {
-        setSidePinyin();
-    }
-    else if (document.getElementById("curTextType").innerHTML == "Pinyin") {
-        setSideEnglish();
-    }
-    else if (document.getElementById("curTextType").innerHTML == "English") {
-        setSideCharacters();
-    }
-    else {
-        console.log('SOMETHING IS WRONG: You shouldnt be here')
+    switch(document.getElementById("curTextType").innerHTML) {
+        case "Characters":
+            setSidePinyin();
+            break;
+        case "Pinyin":
+            setSideEnglish();
+            break;
+        case "English":
+            setSideCharacters();
     }
 });
 
@@ -38,17 +36,15 @@ const downArrow = document.getElementById("downArrow")
 downArrow.addEventListener('click', function handleDownClick() {
     console.log('Down arrow button clicked');
     //Handling the visual changes
-    if (document.getElementById("curTextType").innerHTML == "Characters") {
-        setSideEnglish();
-    }
-    else if (document.getElementById("curTextType").innerHTML == "Pinyin") {
-        setSideCharacters();
-    }
-    else if (document.getElementById("curTextType").innerHTML == "English") {
-        setSidePinyin();
-    }
-    else {
-        console.log('SOMETHING IS WRONG: You shouldnt be here')
+    switch(document.getElementById("curTextType").innerHTML) {
+        case "Characters":
+            setSideEnglish();
+            break;
+        case "Pinyin":
+            setSideCharacters();
+            break;
+        case "English":
+            setSidePinyin();
     }
 });
 
