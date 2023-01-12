@@ -1,5 +1,5 @@
-// import { nextCard } from "./card_list";
-// import { previousCard } from "./card_list";
+import { nextCard } from "./card_list.js";
+import { previousCard } from "./card_list.js";
 import { flipCard } from "./card_list.js";
 
 
@@ -86,20 +86,32 @@ downArrow.addEventListener('click', function handleDownClick() {
 /*
 Setting up the functionality of the previous card button
 */
-const previousCard = document.getElementById("previousCardButton")
+const previousCardButton = document.getElementById("previousCardButton")
 
-previousCard.addEventListener('click', function handlePrevCardClick() {
+previousCardButton.addEventListener('click', function handlePrevCardClick() {
     console.log('Previous card button clicked');
-    // previousCard();
+    previousCard();
+    //Setting button text
+    document.getElementById("upTextType").innerHTML = "▲ Pinyin ▲";
+    document.getElementById("curTextType").innerHTML = "Characters";
+    document.getElementById("downTextType").innerHTML = "▼ English ▼";
+    //Setting flashcard text
+    document.getElementById("cardText").innerHTML = flipCard("Characters");
 });
 
 
 /*
 Setting up the functionality of the next card button
 */
-const nextCard = document.getElementById("nextCardButton")
+const nextCardButton = document.getElementById("nextCardButton")
 
-nextCard.addEventListener('click', function handleNextCardClick() {
+nextCardButton.addEventListener('click', function handleNextCardClick() {
     console.log('Next card button clicked');
-    // nextCard();
+    nextCard();
+    //Setting button text
+    document.getElementById("upTextType").innerHTML = "▲ Pinyin ▲";
+    document.getElementById("curTextType").innerHTML = "Characters";
+    document.getElementById("downTextType").innerHTML = "▼ English ▼";
+    //Setting flashcard text
+    document.getElementById("cardText").innerHTML = flipCard("Characters");
 });
