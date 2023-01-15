@@ -12,7 +12,7 @@ Setting up the functionality of the up arrow button
 */
 const upArrow = document.getElementById("upArrow")
 
-upArrow.addEventListener('click', function handleUpClick() {
+function handleUpClick() {
     console.log('Up arrow button clicked');
     //Handling the visual changes
     switch(document.getElementById("curTextType").innerHTML) {
@@ -25,6 +25,10 @@ upArrow.addEventListener('click', function handleUpClick() {
         case "English":
             setSideCharacters();
     }
+}
+
+upArrow.addEventListener('click', function click() {
+    handleUpClick();
 });
 
 
@@ -33,7 +37,7 @@ Setting up the functionality of the down arrow button
 */
 const downArrow = document.getElementById("downArrow")
 
-downArrow.addEventListener('click', function handleDownClick() {
+function handleDownClick() {
     console.log('Down arrow button clicked');
     //Handling the visual changes
     switch(document.getElementById("curTextType").innerHTML) {
@@ -46,6 +50,10 @@ downArrow.addEventListener('click', function handleDownClick() {
         case "English":
             setSidePinyin();
     }
+}
+
+downArrow.addEventListener('click', function click() {
+    handleDownClick();
 });
 
 
@@ -54,10 +62,14 @@ Setting up the functionality of the previous card button
 */
 const previousCardButton = document.getElementById("previousCardButton")
 
-previousCardButton.addEventListener('click', function handlePrevCardClick() {
+function handlePrevCardClick() {
     console.log('Previous card button clicked');
     previousCard();
     setSideCharacters();
+}
+
+previousCardButton.addEventListener('click', function click() {
+    handlePrevCardClick();
 });
 
 
@@ -66,10 +78,38 @@ Setting up the functionality of the next card button
 */
 const nextCardButton = document.getElementById("nextCardButton")
 
-nextCardButton.addEventListener('click', function handleNextCardClick() {
+function handleNextCardClick() {
     console.log('Next card button clicked');
     nextCard();
     setSideCharacters();
+}
+
+nextCardButton.addEventListener('click', function click() {
+    handleNextCardClick();
+});
+
+
+/*
+Adding key press functionality to the program
+*/
+document.addEventListener('keydown', function (keyPress) {
+    switch (keyPress.key) {
+        case "ArrowUp":
+            console.log('Up arrow button clicked');
+            handleUpClick();
+            break;
+        case "ArrowDown":
+            console.log('Down arrow button clicked');
+            handleDownClick();
+            break;
+        case "ArrowLeft":
+            console.log('Previous card button clicked');
+            handlePrevCardClick();
+            break;
+        case "ArrowRight":
+            console.log('Next card button clicked');
+            handleNextCardClick();
+    }
 });
 
 
