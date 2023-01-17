@@ -142,3 +142,7 @@ function setSideCharacters() {
     //Setting flashcard text
     document.getElementById("cardText").innerHTML = flipCard("Characters");
 }
+
+/*
+Creating the new settings menu window
+*/
