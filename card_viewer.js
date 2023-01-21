@@ -2,9 +2,22 @@ import { nextCard } from "./card_list.js";
 import { previousCard } from "./card_list.js";
 import { flipCard } from "./card_list.js";
 
+// Variable that controls which side of the flashcard comes up first
+//Default is Characters
+var firstSide = "Characters";
+
 
 // Setting starting value for flashcard
-document.getElementById("cardText").innerHTML = flipCard(document.getElementById("curTextType").innerHTML);
+switch(firstSide) {
+    case "Characters":
+        setSideCharacters();
+        break;
+    case "Pinyin":
+        setSidePinyin();
+        break;
+    case "English":
+        setSideEnglish();
+}
 
 
 /*
@@ -65,7 +78,16 @@ const previousCardButton = document.getElementById("previousCardButton")
 function handlePrevCardClick() {
     console.log('Previous card button clicked');
     previousCard();
-    setSideCharacters();
+    switch(firstSide) {
+        case "Characters":
+            setSideCharacters();
+            break;
+        case "Pinyin":
+            setSidePinyin();
+            break;
+        case "English":
+            setSideEnglish();
+    }
 }
 
 previousCardButton.addEventListener('click', function click() {
@@ -81,7 +103,16 @@ const nextCardButton = document.getElementById("nextCardButton")
 function handleNextCardClick() {
     console.log('Next card button clicked');
     nextCard();
-    setSideCharacters();
+    switch(firstSide) {
+        case "Characters":
+            setSideCharacters();
+            break;
+        case "Pinyin":
+            setSidePinyin();
+            break;
+        case "English":
+            setSideEnglish();
+    }
 }
 
 nextCardButton.addEventListener('click', function click() {
@@ -146,3 +177,28 @@ function setSideCharacters() {
 /*
 Creating the new settings menu window
 */
+const settingsApplyButton = document.getElementById("settingsApply")
+
+settingsApplyButton.addEventListener('click', function handleSettingsApply() {
+    console.log('Apply button clicked');
+    switch(document.getElementById('firstCardSideSelector').value) {
+        case "Characters":
+            console.log('Characters set as default side');
+            firstSide = "Characters";
+            break;
+        case "English":
+            console.log('English set as default side');
+            firstSide = "English";
+            break;
+        case "Pinyin":
+            console.log('Pinyin set as default side');
+            firstSide = "Pinyin";
+    }
+});
+
+const settingsCancelButton = document.getElementById("settingsCancel")
+
+settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
+    console.log('Cancel button clicked');
+    
+});
