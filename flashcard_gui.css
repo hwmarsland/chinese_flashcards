@@ -21,20 +21,74 @@ html{
     display: inline;
     position: relative;
     margin-left: 60%;
+    background: #cccccc;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#cardSettingsButton:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
 }
 
 #settingsPanel {
     position: absolute;
     width: 80%;
     margin-left: 10%;
-    margin-top: 20%;
+    margin-top: 13%;
     z-index: 99;
     min-height: 200px;
     /* opacity: 0; */
     background: #cccccc;
-    /* transition: opacity 1s ease, border 1s ease, left 0s 1s; */
+    transition: opacity 1s ease, border 1s ease, left 0s 1s;
     border: 3px solid #ff0000;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+#settingsPanel h3 {
+    margin-left: 10%;
+}
+#settingsPanel p {
+    margin-left: 10%;
+}
+
+#firstCardSideSelector {
+    text-align: center;
+    background-color: #ffffff;
+    width: fit-content;
+    margin: auto;
+    min-height: 40px;
+    margin-left: 10%;
+}
+#firstCardSideSelector:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
+}
+
+#settingsActions {
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
+#settingsApply {
+    text-align: center;
+    background-color: #ffffff;
+    width: fit-content;
+    min-height: 40px;
+}
+#settingsApply:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
+}
+
+#settingsCancel {
+    text-align: center;
+    background-color: #ffffff;
+    width: fit-content;
+    min-height: 40px;
+}
+#settingsCancel:hover {
+    background-color: #ff0000;
+    transition: 0.3s;
 }
 
 #upArrow {
@@ -97,11 +151,12 @@ html{
 #previousCardButton {
     margin: auto;
     text-align: center;
-    display: inline;
+    display: inline-block;
     background-color: #cccccc;
     padding-left: 10px;
     padding-right: 10px;
     min-width: 150px;
+    height: 50px;
 }
 #previousCardButton:hover {
     background-color: #ff0000;
@@ -111,11 +166,12 @@ html{
 #nextCardButton {
     margin: auto;
     text-align: center;
-    display: inline;
+    display: inline-block;
     background-color: #cccccc;
     padding-left: 10px;
     padding-right: 10px;
     min-width: 150px;
+    height: 50px;
 }
 #nextCardButton:hover {
     background-color: #ff0000;

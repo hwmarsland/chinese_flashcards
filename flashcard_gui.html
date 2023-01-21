@@ -11,7 +11,13 @@
 </div>
 
 <div id="settingsPanel">
-    <p>Settings content here</p>
+    <h3>OPTIONS</h3>
+    <p>Which side appears first?</p>
+    <select name="firstCardSideSelector" id="firstCardSideSelector">
+        <option value="charactersFirst" id="charactersFirst">Characters</option>
+        <option value="englishFirst" id="englishFirst">English</option>
+        <option value="pinyinFirst" id="pinyinFirst">Pinyin</option>
+    </select>
     <div id="settingsActions">
         <button id="settingsApply">Apply</button>
         <button id="settingsCancel">Cancel</button>
@@ -35,13 +41,8 @@
 
 <br>
 <div id="prevNextBlocks">
-    <button id="previousCardButton">
-        <p>◀ Previous Card</p>
-    </button>
-
-    <button id="nextCardButton">
-        <p>Next Card ▶</p>
-    </button>
+    <button id="previousCardButton">◀ Previous Card</button>
+    <button id="nextCardButton">Next Card ▶</button>
 </div>
 
 <script src="card_list.js" type="module"></script>
