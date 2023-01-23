@@ -177,11 +177,23 @@ function setSideCharacters() {
 /*
 Creating the new settings menu window
 */
+const settingsPanel = document.getElementById('settingsPanel')
+const screenDarken = document.getElementById('screenDarken')
+const cardSettings = document.getElementById('cardSettingsButton')
+
+cardSettings.addEventListener('click', function showCardSettings() {
+    settingsPanel.style.opacity = 1;
+    settingsPanel.style.pointerEvents = 'all';
+    screenDarken.style.opacity = 0.8;
+    screenDarken.style.pointerEvents = 'all';
+});
+
+const settingsSelect = document.getElementById('firstCardSideSelector')
 const settingsApplyButton = document.getElementById("settingsApply")
 
 settingsApplyButton.addEventListener('click', function handleSettingsApply() {
     console.log('Apply button clicked');
-    switch(document.getElementById('firstCardSideSelector').value) {
+    switch(settingsSelect.options[settingsSelect.selectedIndex].text) {
         case "Characters":
             console.log('Characters set as default side');
             firstSide = "Characters";
@@ -194,11 +206,38 @@ settingsApplyButton.addEventListener('click', function handleSettingsApply() {
             console.log('Pinyin set as default side');
             firstSide = "Pinyin";
     }
+    switch(firstSide) {
+        case "Characters":
+            setSideCharacters();
+            break;
+        case "Pinyin":
+            setSidePinyin();
+            break;
+        case "English":
+            setSideEnglish();
+    }
+    settingsPanel.style.opacity = 0;
+    settingsPanel.style.pointerEvents = 'none';
+    screenDarken.style.opacity = 0;
+    screenDarken.style.pointerEvents = 'none';
 });
 
 const settingsCancelButton = document.getElementById("settingsCancel")
 
 settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
     console.log('Cancel button clicked');
-    
+    switch(firstSide) {
+        case "Characters":
+            settingsSelect.value = 'charactersFirst';
+            break;
+        case "Pinyin":
+            settingsSelect.value = 'pinyinFirst';
+            break;
+        case "English":
+            settingsSelect.value = 'englishFirst';;
+    }
+    settingsPanel.style.opacity = 0;
+    settingsPanel.style.pointerEvents = 'none';
+    screenDarken.style.opacity = 0;
+    screenDarken.style.pointerEvents = 'none';
 });
