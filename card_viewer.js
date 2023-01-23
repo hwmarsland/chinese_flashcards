@@ -126,19 +126,15 @@ Adding key press functionality to the program
 document.addEventListener('keydown', function (keyPress) {
     switch (keyPress.key) {
         case "ArrowUp":
-            console.log('Up arrow button clicked');
             handleUpClick();
             break;
         case "ArrowDown":
-            console.log('Down arrow button clicked');
             handleDownClick();
             break;
         case "ArrowLeft":
-            console.log('Previous card button clicked');
             handlePrevCardClick();
             break;
         case "ArrowRight":
-            console.log('Next card button clicked');
             handleNextCardClick();
     }
 });
