@@ -21,6 +21,7 @@ function setSide(side) {
     document.getElementById("downTextType").innerHTML = sideLabels[side].down;
     //Setting flashcard text
     document.getElementById("cardText").innerHTML = flipCard(side);
+    curSide = side;
 }
 
 function nextSide(step) {
@@ -102,7 +103,6 @@ const previousCardButton = document.getElementById("previousCardButton")
 function handlePrevCardClick() {
     console.log('Previous card button clicked');
     previousCard();
-    curSide = firstSide;
     setSide(firstSide);
     // switch(firstSide) {
     //     case "Characters":
@@ -129,7 +129,6 @@ const nextCardButton = document.getElementById("nextCardButton")
 function handleNextCardClick() {
     console.log('Next card button clicked');
     nextCard();
-    curSide = firstSide;
     setSide(firstSide);
     // switch(firstSide) {
     //     case "Characters":
@@ -206,10 +205,12 @@ const screenDarken = document.getElementById('screenDarken')
 const cardSettings = document.getElementById('cardSettingsButton')
 
 cardSettings.addEventListener('click', function showCardSettings() {
-    settingsPanel.style.opacity = 1;
-    settingsPanel.style.pointerEvents = 'all';
-    screenDarken.style.opacity = 0.8;
-    screenDarken.style.pointerEvents = 'all';
+    showElement(settingsPanel, 1);
+    showElement(screenDarken, 0.8);
+    // settingsPanel.style.opacity = 1;
+    // settingsPanel.style.pointerEvents = 'all';
+    // screenDarken.style.opacity = 0.8;
+    // screenDarken.style.pointerEvents = 'all';
 });
 
 const settingsSelect = document.getElementById('firstCardSideSelector')
@@ -230,20 +231,23 @@ settingsApplyButton.addEventListener('click', function handleSettingsApply() {
             console.log('Pinyin set as default side');
             firstSide = 0;
     }
-    switch(firstSide) {
-        case "Characters":
-            setSideCharacters();
-            break;
-        case "Pinyin":
-            setSidePinyin();
-            break;
-        case "English":
-            setSideEnglish();
-    }
-    settingsPanel.style.opacity = 0;
-    settingsPanel.style.pointerEvents = 'none';
-    screenDarken.style.opacity = 0;
-    screenDarken.style.pointerEvents = 'none';
+    setSide(firstSide);
+    // switch(firstSide) {
+    //     case "Characters":
+    //         setSideCharacters();
+    //         break;
+    //     case "Pinyin":
+    //         setSidePinyin();
+    //         break;
+    //     case "English":
+    //         setSideEnglish();
+    // }
+    hideElement(settingsPanel);
+    hideElement(screenDarken);
+    // settingsPanel.style.opacity = 0;
+    // settingsPanel.style.pointerEvents = 'none';
+    // screenDarken.style.opacity = 0;
+    // screenDarken.style.pointerEvents = 'none';
 });
 
 const settingsCancelButton = document.getElementById("settingsCancel")
@@ -260,8 +264,23 @@ settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
         case 1:
             settingsSelect.value = 'englishFirst';;
     }
-    settingsPanel.style.opacity = 0;
-    settingsPanel.style.pointerEvents = 'none';
-    screenDarken.style.opacity = 0;
-    screenDarken.style.pointerEvents = 'none';
+    hideElement(settingsPanel);
+    hideElement(screenDarken);
+    // settingsPanel.style.opacity = 0;
+    // settingsPanel.style.pointerEvents = 'none';
+    // screenDarken.style.opacity = 0;
+    // screenDarken.style.pointerEvents = 'none';
 });
+
+/*
+Repeated code for hiding/showing html elements
+*/
+function hideElement(element) {
+    element.style.opacity = 0;
+    element.style.pointerEvents = 'none';
+}
+
+function showElement(element, opacity) {
+    element.style.opacity = opacity;
+    element.style.pointerEvents = 'all';
+}
