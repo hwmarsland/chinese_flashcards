@@ -31,16 +31,6 @@ function nextSide(step) {
 
 // Setting starting value for flashcard
 setSide(curSide);
-// switch(firstSide) {
-//     case "Characters":
-//         setSideCharacters();
-//         break;
-//     case "Pinyin":
-//         setSidePinyin();
-//         break;
-//     case "English":
-//         setSideEnglish();
-// }
 
 
 /*
@@ -52,16 +42,6 @@ function handleUpClick() {
     console.log('Up arrow button clicked');
     //Handling the visual changes
     nextSide(1);
-    // switch(document.getElementById("curTextType").innerHTML) {
-    //     case "Characters":
-    //         setSidePinyin();
-    //         break;
-    //     case "Pinyin":
-    //         setSideEnglish();
-    //         break;
-    //     case "English":
-    //         setSideCharacters();
-    // }
 }
 
 upArrow.addEventListener('click', function click() {
@@ -78,16 +58,6 @@ function handleDownClick() {
     console.log('Down arrow button clicked');
     //Handling the visual changes
     nextSide(-1);
-    // switch(document.getElementById("curTextType").innerHTML) {
-    //     case "Characters":
-    //         setSideEnglish();
-    //         break;
-    //     case "Pinyin":
-    //         setSideCharacters();
-    //         break;
-    //     case "English":
-    //         setSidePinyin();
-    // }
 }
 
 downArrow.addEventListener('click', function click() {
@@ -104,16 +74,6 @@ function handlePrevCardClick() {
     console.log('Previous card button clicked');
     previousCard();
     setSide(firstSide);
-    // switch(firstSide) {
-    //     case "Characters":
-    //         setSideCharacters();
-    //         break;
-    //     case "Pinyin":
-    //         setSidePinyin();
-    //         break;
-    //     case "English":
-    //         setSideEnglish();
-    // }
 }
 
 previousCardButton.addEventListener('click', function click() {
@@ -130,16 +90,6 @@ function handleNextCardClick() {
     console.log('Next card button clicked');
     nextCard();
     setSide(firstSide);
-    // switch(firstSide) {
-    //     case "Characters":
-    //         setSideCharacters();
-    //         break;
-    //     case "Pinyin":
-    //         setSidePinyin();
-    //         break;
-    //     case "English":
-    //         setSideEnglish();
-    // }
 }
 
 nextCardButton.addEventListener('click', function click() {
@@ -167,36 +117,6 @@ document.addEventListener('keydown', function (keyPress) {
 });
 
 
-// /*
-// Putting redundant code bits that set the card values in their own functions
-// */
-// function setSidePinyin() {
-//     //Setting button text
-//     document.getElementById("upTextType").innerHTML = "▲ English ▲";
-//     document.getElementById("curTextType").innerHTML = "Pinyin";
-//     document.getElementById("downTextType").innerHTML = "▼ Characters ▼";
-//     //Setting flashcard text
-//     document.getElementById("cardText").innerHTML = flipCard("Pinyin");
-// }
-
-// function setSideEnglish() {
-//     //Setting button text
-//     document.getElementById("upTextType").innerHTML = "▲ Characters ▲";
-//     document.getElementById("curTextType").innerHTML = "English";
-//     document.getElementById("downTextType").innerHTML = "▼ Pinyin ▼";
-//     //Setting flashcard text
-//     document.getElementById("cardText").innerHTML = flipCard("English");
-// }
-
-// function setSideCharacters() {
-//     //Setting button text
-//     document.getElementById("upTextType").innerHTML = "▲ Pinyin ▲";
-//     document.getElementById("curTextType").innerHTML = "Characters";
-//     document.getElementById("downTextType").innerHTML = "▼ English ▼";
-//     //Setting flashcard text
-//     document.getElementById("cardText").innerHTML = flipCard("Characters");
-// }
-
 /*
 Creating the new settings menu window
 */
@@ -207,10 +127,6 @@ const cardSettings = document.getElementById('cardSettingsButton')
 cardSettings.addEventListener('click', function showCardSettings() {
     showElement(settingsPanel, 1);
     showElement(screenDarken, 0.8);
-    // settingsPanel.style.opacity = 1;
-    // settingsPanel.style.pointerEvents = 'all';
-    // screenDarken.style.opacity = 0.8;
-    // screenDarken.style.pointerEvents = 'all';
 });
 
 const settingsSelect = document.getElementById('firstCardSideSelector')
@@ -232,22 +148,8 @@ settingsApplyButton.addEventListener('click', function handleSettingsApply() {
             firstSide = 0;
     }
     setSide(firstSide);
-    // switch(firstSide) {
-    //     case "Characters":
-    //         setSideCharacters();
-    //         break;
-    //     case "Pinyin":
-    //         setSidePinyin();
-    //         break;
-    //     case "English":
-    //         setSideEnglish();
-    // }
     hideElement(settingsPanel);
     hideElement(screenDarken);
-    // settingsPanel.style.opacity = 0;
-    // settingsPanel.style.pointerEvents = 'none';
-    // screenDarken.style.opacity = 0;
-    // screenDarken.style.pointerEvents = 'none';
 });
 
 const settingsCancelButton = document.getElementById("settingsCancel")
@@ -266,10 +168,6 @@ settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
     }
     hideElement(settingsPanel);
     hideElement(screenDarken);
-    // settingsPanel.style.opacity = 0;
-    // settingsPanel.style.pointerEvents = 'none';
-    // screenDarken.style.opacity = 0;
-    // screenDarken.style.pointerEvents = 'none';
 });
 
 /*
