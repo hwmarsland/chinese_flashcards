@@ -28,13 +28,13 @@ export function previousCard(){
 };
 
 export function flipCard(cardSide){
-    if (cardSide == "Characters"){
+    if (cardSide == 2){
         return(cardDeck[cardIndexPointer].characters);
     }
-    else if (cardSide == "Pinyin"){
+    else if (cardSide == 0){
         return(cardDeck[cardIndexPointer].pinyin);
     }
-    else if (cardSide == "English"){
+    else if (cardSide == 1){
         return(cardDeck[cardIndexPointer].english);
     }
     else {

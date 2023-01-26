@@ -4,20 +4,42 @@ import { flipCard } from "./card_list.js";
 
 // Variable that controls which side of the flashcard comes up first
 //Default is Characters
-var firstSide = "Characters";
+var firstSide = 2;
+var curSide = firstSide;
 
+//Array that is traversed to facilitate the flipping card and avoid repetitive switch statements
+const sideLabels = [
+    {up: "▲ English ▲", cur: "Pinyin", down: "▼ Characters ▼"}, //Pinyin side
+    {up: "▲ Characters ▲", cur: "English", down: "▼ Pinyin ▼"}, //English side
+    {up: "▲ Pinyin ▲", cur: "Characters", down: "▼ English ▼"}, //Characters side
+]
+
+function setSide(side) {
+    //Setting button text
+    document.getElementById("upTextType").innerHTML = sideLabels[side].up;
+    document.getElementById("curTextType").innerHTML = sideLabels[side].cur;
+    document.getElementById("downTextType").innerHTML = sideLabels[side].down;
+    //Setting flashcard text
+    document.getElementById("cardText").innerHTML = flipCard(side);
+}
+
+function nextSide(step) {
+    curSide = (curSide + 3 + step) % 3;
+    setSide(curSide);
+}
 
 // Setting starting value for flashcard
-switch(firstSide) {
-    case "Characters":
-        setSideCharacters();
-        break;
-    case "Pinyin":
-        setSidePinyin();
-        break;
-    case "English":
-        setSideEnglish();
-}
+setSide(curSide);
+// switch(firstSide) {
+//     case "Characters":
+//         setSideCharacters();
+//         break;
+//     case "Pinyin":
+//         setSidePinyin();
+//         break;
+//     case "English":
+//         setSideEnglish();
+// }
 
 
 /*
@@ -28,16 +50,17 @@ const upArrow = document.getElementById("upArrow")
 function handleUpClick() {
     console.log('Up arrow button clicked');
     //Handling the visual changes
-    switch(document.getElementById("curTextType").innerHTML) {
-        case "Characters":
-            setSidePinyin();
-            break;
-        case "Pinyin":
-            setSideEnglish();
-            break;
-        case "English":
-            setSideCharacters();
-    }
+    nextSide(1);
+    // switch(document.getElementById("curTextType").innerHTML) {
+    //     case "Characters":
+    //         setSidePinyin();
+    //         break;
+    //     case "Pinyin":
+    //         setSideEnglish();
+    //         break;
+    //     case "English":
+    //         setSideCharacters();
+    // }
 }
 
 upArrow.addEventListener('click', function click() {
@@ -53,16 +76,17 @@ const downArrow = document.getElementById("downArrow")
 function handleDownClick() {
     console.log('Down arrow button clicked');
     //Handling the visual changes
-    switch(document.getElementById("curTextType").innerHTML) {
-        case "Characters":
-            setSideEnglish();
-            break;
-        case "Pinyin":
-            setSideCharacters();
-            break;
-        case "English":
-            setSidePinyin();
-    }
+    nextSide(-1);
+    // switch(document.getElementById("curTextType").innerHTML) {
+    //     case "Characters":
+    //         setSideEnglish();
+    //         break;
+    //     case "Pinyin":
+    //         setSideCharacters();
+    //         break;
+    //     case "English":
+    //         setSidePinyin();
+    // }
 }
 
 downArrow.addEventListener('click', function click() {
@@ -78,16 +102,18 @@ const previousCardButton = document.getElementById("previousCardButton")
 function handlePrevCardClick() {
     console.log('Previous card button clicked');
     previousCard();
-    switch(firstSide) {
-        case "Characters":
-            setSideCharacters();
-            break;
-        case "Pinyin":
-            setSidePinyin();
-            break;
-        case "English":
-            setSideEnglish();
-    }
+    curSide = firstSide;
+    setSide(firstSide);
+    // switch(firstSide) {
+    //     case "Characters":
+    //         setSideCharacters();
+    //         break;
+    //     case "Pinyin":
+    //         setSidePinyin();
+    //         break;
+    //     case "English":
+    //         setSideEnglish();
+    // }
 }
 
 previousCardButton.addEventListener('click', function click() {
@@ -103,16 +129,18 @@ const nextCardButton = document.getElementById("nextCardButton")
 function handleNextCardClick() {
     console.log('Next card button clicked');
     nextCard();
-    switch(firstSide) {
-        case "Characters":
-            setSideCharacters();
-            break;
-        case "Pinyin":
-            setSidePinyin();
-            break;
-        case "English":
-            setSideEnglish();
-    }
+    curSide = firstSide;
+    setSide(firstSide);
+    // switch(firstSide) {
+    //     case "Characters":
+    //         setSideCharacters();
+    //         break;
+    //     case "Pinyin":
+    //         setSidePinyin();
+    //         break;
+    //     case "English":
+    //         setSideEnglish();
+    // }
 }
 
 nextCardButton.addEventListener('click', function click() {
@@ -140,35 +168,35 @@ document.addEventListener('keydown', function (keyPress) {
 });
 
 
-/*
-Putting redundant code bits that set the card values in their own functions
-*/
-function setSidePinyin() {
-    //Setting button text
-    document.getElementById("upTextType").innerHTML = "▲ English ▲";
-    document.getElementById("curTextType").innerHTML = "Pinyin";
-    document.getElementById("downTextType").innerHTML = "▼ Characters ▼";
-    //Setting flashcard text
-    document.getElementById("cardText").innerHTML = flipCard("Pinyin");
-}
+// /*
+// Putting redundant code bits that set the card values in their own functions
+// */
+// function setSidePinyin() {
+//     //Setting button text
+//     document.getElementById("upTextType").innerHTML = "▲ English ▲";
+//     document.getElementById("curTextType").innerHTML = "Pinyin";
+//     document.getElementById("downTextType").innerHTML = "▼ Characters ▼";
+//     //Setting flashcard text
+//     document.getElementById("cardText").innerHTML = flipCard("Pinyin");
+// }
 
-function setSideEnglish() {
-    //Setting button text
-    document.getElementById("upTextType").innerHTML = "▲ Characters ▲";
-    document.getElementById("curTextType").innerHTML = "English";
-    document.getElementById("downTextType").innerHTML = "▼ Pinyin ▼";
-    //Setting flashcard text
-    document.getElementById("cardText").innerHTML = flipCard("English");
-}
+// function setSideEnglish() {
+//     //Setting button text
+//     document.getElementById("upTextType").innerHTML = "▲ Characters ▲";
+//     document.getElementById("curTextType").innerHTML = "English";
+//     document.getElementById("downTextType").innerHTML = "▼ Pinyin ▼";
+//     //Setting flashcard text
+//     document.getElementById("cardText").innerHTML = flipCard("English");
+// }
 
-function setSideCharacters() {
-    //Setting button text
-    document.getElementById("upTextType").innerHTML = "▲ Pinyin ▲";
-    document.getElementById("curTextType").innerHTML = "Characters";
-    document.getElementById("downTextType").innerHTML = "▼ English ▼";
-    //Setting flashcard text
-    document.getElementById("cardText").innerHTML = flipCard("Characters");
-}
+// function setSideCharacters() {
+//     //Setting button text
+//     document.getElementById("upTextType").innerHTML = "▲ Pinyin ▲";
+//     document.getElementById("curTextType").innerHTML = "Characters";
+//     document.getElementById("downTextType").innerHTML = "▼ English ▼";
+//     //Setting flashcard text
+//     document.getElementById("cardText").innerHTML = flipCard("Characters");
+// }
 
 /*
 Creating the new settings menu window
@@ -192,15 +220,15 @@ settingsApplyButton.addEventListener('click', function handleSettingsApply() {
     switch(settingsSelect.options[settingsSelect.selectedIndex].text) {
         case "Characters":
             console.log('Characters set as default side');
-            firstSide = "Characters";
+            firstSide = 2;
             break;
         case "English":
             console.log('English set as default side');
-            firstSide = "English";
+            firstSide = 1;
             break;
         case "Pinyin":
             console.log('Pinyin set as default side');
-            firstSide = "Pinyin";
+            firstSide = 0;
     }
     switch(firstSide) {
         case "Characters":
@@ -223,13 +251,13 @@ const settingsCancelButton = document.getElementById("settingsCancel")
 settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
     console.log('Cancel button clicked');
     switch(firstSide) {
-        case "Characters":
+        case 2:
             settingsSelect.value = 'charactersFirst';
             break;
-        case "Pinyin":
+        case 0:
             settingsSelect.value = 'pinyinFirst';
             break;
-        case "English":
+        case 1:
             settingsSelect.value = 'englishFirst';;
     }
     settingsPanel.style.opacity = 0;
