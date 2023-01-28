@@ -1,11 +1,13 @@
 import { nextCard } from "./card_list.js";
 import { previousCard } from "./card_list.js";
 import { flipCard } from "./card_list.js";
+import { cardDeck } from "./card_list.js"
 
 // Variable that controls which side of the flashcard comes up first
 //Default is Characters
 var firstSide = 2;
 var curSide = firstSide;
+var deckName = cardDeck.name;
 
 //Array that is traversed to facilitate the flipping card and avoid repetitive switch statements
 const sideLabels = [
@@ -28,6 +30,9 @@ function nextSide(step) {
     curSide = (curSide + 3 + step) % 3;
     setSide(curSide);
 }
+
+// Setting the deck name header
+document.getElementById("deckName").innerHTML = deckName;
 
 // Setting starting value for flashcard
 setSide(curSide);
