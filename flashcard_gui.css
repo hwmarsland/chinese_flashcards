@@ -27,6 +27,7 @@ html{
     height: 50px;
     padding-left: 10px;
     padding-right: 10px;
+    border-radius: 5px;
 }
 #cardSettingsButton:hover {
     background-color: #ff0000;
@@ -45,6 +46,7 @@ html{
     border: 3px solid #ff0000;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     pointer-events: none;
+    border-radius: 5px;
 }
 #settingsPanel h3 {
     margin-left: 10%;
@@ -76,6 +78,7 @@ html{
     background-color: #ffffff;
     width: fit-content;
     min-height: 40px;
+    border-radius: 5px;
 }
 #settingsApply:hover {
     background-color: #ff0000;
@@ -87,6 +90,7 @@ html{
     background-color: #ffffff;
     width: fit-content;
     min-height: 40px;
+    border-radius: 5px;
 }
 #settingsCancel:hover {
     background-color: #ff0000;
@@ -115,6 +119,8 @@ html{
     margin-top: 5%;
     min-height: 40px;
     min-width: fit-content;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 #upArrow:hover {
     background-color: #ff0000;
@@ -128,6 +134,7 @@ html{
     padding: 5%;
     min-height: 180px;
     position: relative;
+    border-radius: 5px;
 }
 #flashcardBackground h2 {
     color: #cccccc;
@@ -153,6 +160,8 @@ html{
     margin: auto;
     min-height: 40px;
     min-width: fit-content;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 #downArrow:hover {
     background-color: #ff0000;
@@ -172,6 +181,7 @@ html{
     padding-right: 10px;
     min-width: 150px;
     height: 50px;
+    border-radius: 5px;
 }
 #previousCardButton:hover {
     background-color: #ff0000;
@@ -187,6 +197,7 @@ html{
     padding-right: 10px;
     min-width: 150px;
     height: 50px;
+    border-radius: 5px;
 }
 #nextCardButton:hover {
     background-color: #ff0000;
