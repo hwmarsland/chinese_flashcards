@@ -1,0 +1,22 @@
+body {
+    background-color: #ffffff;
+    margin: 0px;
+    height: 100%;
+}
+
+html {
+    min-width: 100%;
+    max-width: 900px;
+    overflow: auto;
+}
+
+#deckHeader {
+    text-align: center;
+    border: 5px solid black;
+}
+
+#deckSelectorBody {
+    
+    padding: 2%;
+    border: 5px solid red;
+}
