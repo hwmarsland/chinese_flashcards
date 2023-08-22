@@ -27,6 +27,6 @@ export function flipCard(cardSide){
         return(cardDeck.cards[cardIndexPointer].english);
     }
     else {
-        console.log("SOMETHING IS WRONG: You shouldnt be here")
+        console.log("SOMETHING IS WRONG: You shouldnt be here") // Progression tracking
     }
 };
