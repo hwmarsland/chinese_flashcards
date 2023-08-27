@@ -18,9 +18,10 @@ import { cardDeck } from "./card_list.js";
 //Default is Characters
 var firstSide = 2;
 var curSide = firstSide;
-var deckName = cardDeck.name; // !!! Needs to be changed to become variable for different decks being selected -- Change after implementing deck selector
+var deckName = cardDeck.name; 
 
 //Array that is traversed to facilitate the flipping card and avoid repetitive switch statements
+// COPIED
 const sideLabels = [
     {up: "▲ English ▲", cur: "Pinyin", down: "▼ Characters ▼"}, //Pinyin side
     {up: "▲ Characters ▲", cur: "English", down: "▼ Pinyin ▼"}, //English side
@@ -28,6 +29,7 @@ const sideLabels = [
 ]
 
 // Used to set all of the values on the buttons and on the flashcard itself to the correct values when a jump occurs (Not up or down arrow press)
+// COPIED
 function setSide(side) {
     //Setting button text
     document.getElementById("upTextType").innerHTML = sideLabels[side].up; // upTextType refers to the English/Pinyin/Characters distinction shown on the up arrow button
@@ -39,19 +41,20 @@ function setSide(side) {
 }
 
 // Function that handles how the progression through the side list wraps so the index always stays in bounds
+// COPIED
 function nextSide(step) {
     curSide = (curSide + 3 + step) % 3;
     setSide(curSide);
 }
 
-// Setting the deck name header
+// Setting the deck name header COPIED
 document.getElementById("deckName").innerHTML = deckName;
 
-// Setting starting value for flashcard
+// Setting starting value for flashcard COPIED
 setSide(curSide);
 
 
-/*
+/* COPIED
 Setting up the functionality of the up arrow button
 */
 const upArrow = document.getElementById("upArrow")
@@ -67,7 +70,7 @@ upArrow.addEventListener('click', function click() {
 });
 
 
-/*
+/* COPIED
 Setting up the functionality of the down arrow button
 */
 const downArrow = document.getElementById("downArrow")
@@ -83,7 +86,7 @@ downArrow.addEventListener('click', function click() {
 });
 
 
-/*
+/* COPIED
 Setting up the functionality of the previous card button
 */
 const previousCardButton = document.getElementById("previousCardButton")
@@ -99,7 +102,7 @@ previousCardButton.addEventListener('click', function click() {
 });
 
 
-/*
+/* COPIED
 Setting up the functionality of the next card button
 */
 const nextCardButton = document.getElementById("nextCardButton")
@@ -115,7 +118,7 @@ nextCardButton.addEventListener('click', function click() {
 });
 
 
-/*
+/* COPIED
 Adding key press functionality to the program
 */
 document.addEventListener('keydown', function (keyPress) {
@@ -135,7 +138,7 @@ document.addEventListener('keydown', function (keyPress) {
 });
 
 
-/*
+/* COPIED
 Creating the new settings menu window
 */
 const settingsPanel = document.getElementById('settingsPanel')
@@ -191,7 +194,7 @@ settingsCancelButton.addEventListener('click', function handleSettingsCancel() {
     hideElement(screenDarken);
 });
 
-/*
+/* COPIED
 Repeated code for hiding/showing html elements
 */
 function hideElement(element) {
