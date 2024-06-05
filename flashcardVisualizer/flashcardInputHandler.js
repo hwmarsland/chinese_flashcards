@@ -7,7 +7,7 @@ sent back and update the flashcard GUI
 Harris Marsland
 */
 
-import { sampleDeck } from "./deck_storage.js";
+import { sampleDeck } from "../zDeprecated/deck_storage.js";
 
 // Keeps track of the card being displayed
 var cardIndexPointer = 0;
